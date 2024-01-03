@@ -1,4 +1,4 @@
 #entorno virutal
 source/venv/
-
-.vscode
+venv/
+.vscode/
