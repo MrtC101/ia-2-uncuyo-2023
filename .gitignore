@@ -2,3 +2,5 @@
 source/venv/
 venv/
 .vscode/
+openai-key.txt
+llama27b
