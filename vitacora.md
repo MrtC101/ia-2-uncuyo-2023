@@ -5,4 +5,5 @@
 05/01 Generación de nuevos datos con LLM. Probando Api openai, limitación de pago. Instalando local llama 2 7b,limitado por GPU, cambiando a version con solo CPU.lama 2 7B nesesita 30 gb de memoria RAM.
 No usar Llama2. Evaluando si hacerlo a mano o pagar quota.
 Decido generar un poco más de datos de manera manual y luego centrarme en el notebook que habla sobre tokenization.
-06/ Utilizando ChatGPT3.5,Llama 70b y Mixtral8x4 para hacer unos ejemplos más.
+06/01 Utilizando ChatGPT3.5,Llama 70b y Mixtral8x4 para hacer unos ejemplos más.
+Creando un tokenizador con la libreria tokenaizers de huggingface.
