@@ -13,8 +13,7 @@ Subimos de 0.5 a 0.56 esto gracias al tokenizador y evitar overfitting.
 3- Podemos probar con RNN.
 07/01 Descargando el dataset de , publicado en la discussion.
 https://www.kaggle.com/datasets/thedrcat/daigt-v3-train-dataset/?select=train_v3_drcat_02.csv
-
-Separar la prueba en test del entrenamiento
-Re ordenar directorios.
-Crear un notebook donde se carguen todos los pesos de NN,word2vec y tokenizer.
-Inferir vectores en vez de entrenar con los tests?
+Separacion de notebook de prediccion y entrenamiento
+Re estructuración de carpetas del proyecto
+Almacenamiento y carga de modelos y pesos para NN, word2vec y tikenizer
+Inferir vectores en vez de entrenar con los tests.
