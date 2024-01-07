@@ -4,3 +4,4 @@ venv/
 .vscode/
 openai-key.txt
 llama27b
+data/zip/
