@@ -17,3 +17,65 @@ Separacion de notebook de prediccion y entrenamiento
 Re estructuración de carpetas del proyecto
 Almacenamiento y carga de modelos y pesos para NN, word2vec y tikenizer
 Inferir vectores en vez de entrenar con los tests.
+Explroación de hyperprametros fallida
+08/01
+Probar la rquitectura más grande sin overfitting
+Comenzar con otra arquitectura
+09/01
+
+AI pipeline for text
+1. Tokenized
+2. Embedding or bag of words
+3. Model
+4. Train
+
+1. Tokenizar
+    1. Codear un Tokenizer (NO)
+    2. nltk.word_tokenizer
+    3. tokenizer.tokenizer (Entrenar un tokenizer)
+    4. transformers.BertTokenizer (Entrenar bert para tokenizar)
+(Quitar stopwords)
+2. Embeddings
+    1. gensim.word2vec
+    2. gensim.doc2vec 
+    3. GloVE
+    4. fastVec
+    5. transformer.Bert
+3. Models
+    1. NN
+    2. CNN
+    3. RNN
+    4. BERT
+4. Training using keras.
+
+Que hemos probado:
+1. score=0.5
+    1. Word_tokenizer
+    2. doc2vec
+    3. NN
+2. score=0.7
+    1. tokenizer.tokenizer
+    2. doc2vec
+    3. NN
+
+Puedo probar:
+1. 
+    1. tokenizer.tokenizer
+    2. word2vec
+    3. CNN
+2. 
+    1. BERTTokenizer
+    2. word2vec
+    3. CNN    
+3. 
+    1. tokenizer.tokenizer
+    2. word2vec
+    3. RNN
+4. 
+    1. BERTTokenizer
+    2. word2vec
+    3. RNN    
+5. 
+    1. BERTokenizer
+    2. BERT
+6. OTROS TRANSFORMERS
