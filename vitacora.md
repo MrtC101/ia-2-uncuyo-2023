@@ -22,6 +22,14 @@ Explroación de hyperprametros fallida
 Probar la rquitectura más grande sin overfitting
 Comenzar con otra arquitectura
 09/01
+Investigue que otros modelos podia usar.
+Separación del notebook en diferentes partes.
+La utilizar word2vec, no se pueden inferir nuevas palabras.
+Que solución hay? cambio de generador de embeddings? Voy directo a bert?
+10/01
+word2vec no acepta palabras fuera del vocabulario. Cambio a fastText de gesim.
+Existe la posibildad de entrenar con un embbeding por palabra.
+
 
 AI pipeline for text
 1. Tokenized
@@ -61,19 +69,19 @@ Que hemos probado:
 Puedo probar:
 1. 
     1. tokenizer.tokenizer
-    2. word2vec
+    2. doc2vec
     3. CNN
 2. 
     1. BERTTokenizer
-    2. word2vec
+    2. doc2vec
     3. CNN    
 3. 
     1. tokenizer.tokenizer
-    2. word2vec
+    2. doc2vec
     3. RNN
 4. 
     1. BERTTokenizer
-    2. word2vec
+    2. doc2vec
     3. RNN    
 5. 
     1. BERTokenizer
