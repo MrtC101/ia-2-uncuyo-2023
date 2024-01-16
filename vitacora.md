@@ -29,7 +29,20 @@ Que solución hay? cambio de generador de embeddings? Voy directo a bert?
 10/01
 word2vec no acepta palabras fuera del vocabulario. Cambio a fastText de gesim.
 Existe la posibildad de entrenar con un embbeding por palabra.
-
+11/01 NADA
+12/01 NADA
+13/01 
+Tokenización y utilziación del modelo BERT
+Entrenamiento con batch 20 (maximo) en colab tarda 50 minutos por epoca.
+30 minutos en hace predicción de todo el dataset.
+Demasiados parametros, mucho entramiento poco veneficio.
+14/01 Trabajar con la NN, Overfitting, y despues metodos de regularización.
+https://www.kaggle.com/code/residentmario/full-batch-mini-batch-and-online-learning
+Pobrando un full-batch con la NN detectamos que no overfitea ni con 50 epocas.
+Con un online batch es decir de 1, en 25 epocas logra aprender casi todos los ejemplos
+Según lo leido esto se debe a la cantidad de veces que se actualizan los pesos.
+Basicamente interpreto que al utilizar un full-batch training cae en un optimo local.
+Porbando superregularizada, solo con dropout 
 
 AI pipeline for text
 1. Tokenized
