@@ -43,6 +43,16 @@ Con un online batch es decir de 1, en 25 epocas logra aprender casi todos los ej
 Según lo leido esto se debe a la cantidad de veces que se actualizan los pesos.
 Basicamente interpreto que al utilizar un full-batch training cae en un optimo local.
 Porbando superregularizada, solo con dropout 
+15/04 Obtención del posible solucíon provista por ususarios de kaggle
+16/04 Nada
+17/04 Nada
+18/04 Dataset de datos más grande. Prueba de solución propuesta. No funcional debido a falta de hardware para computo. 
+
+Abandono el concurso. Tomo el dataset de doctor cat y lo utilizo para hacer todos los experimentos.
+
+
+
+
 
 AI pipeline for text
 1. Tokenized

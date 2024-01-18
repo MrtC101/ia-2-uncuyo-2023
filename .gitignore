@@ -5,3 +5,4 @@ venv/
 openai-key.txt
 llama27b
 data/zip/
+data/
