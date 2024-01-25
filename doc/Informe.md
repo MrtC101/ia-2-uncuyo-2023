@@ -14,11 +14,15 @@ El objetivo de este trabajo es utilizar modelos de machine learning, específica
 
 El conjunto de datos de está provisto por un [concurso de kaggle](https://www.kaggle.com/competitions/llm-detect-ai-generated-text). De está manera el resultado de los experimentos realizados será evaluada con los resultados obtenidos en la pagina web del concurso.
 
+['Conjunto de datos'](https://www.kaggle.com/datasets/thedrcat/daigt-v3-train-dataset/?select=train_v3_drcat_02.csv)
+
 ### Propuesta
 
-El trabajo consistirá en la prueba de 2 arquitecturas, una NN diseñada por mi, y la prueba de la solucíon propuesta por los participantes del concurso.
+El trabajo consistirá en la prueba de 2 arquitecturas, una NN diseñada por mi, y la prueba de la solución propuesta por los participantes del concurso.
 
 ## Marco Teórico
+
+
 
 ### Preprocesamiento de texto
 

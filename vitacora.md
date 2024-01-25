@@ -47,8 +47,12 @@ Porbando superregularizada, solo con dropout
 16/04 Nada
 17/04 Nada
 18/04 Dataset de datos más grande. Prueba de solución propuesta. No funcional debido a falta de hardware para computo. 
-
 Abandono el concurso. Tomo el dataset de doctor cat y lo utilizo para hacer todos los experimentos.
+22/04 Realize la pruebas sobre el dataset unicamente y los resultados son buenos. Claramente 
+los resultados en la pagina de kaggle tienen que ver con que los datos que uso en el modelo
+no son suficientenmente parecidos a los del dataset dde test de la competencia y ademas
+de que las NN no generalizan suficientemente bien.
+
 
 
 
