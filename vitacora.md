@@ -43,19 +43,31 @@ Con un online batch es decir de 1, en 25 epocas logra aprender casi todos los ej
 Según lo leido esto se debe a la cantidad de veces que se actualizan los pesos.
 Basicamente interpreto que al utilizar un full-batch training cae en un optimo local.
 Porbando superregularizada, solo con dropout 
-15/04 Obtención del posible solucíon provista por ususarios de kaggle
-16/04 Nada
-17/04 Nada
-18/04 Dataset de datos más grande. Prueba de solución propuesta. No funcional debido a falta de hardware para computo. 
+15/01 Obtención del posible solucíon provista por ususarios de kaggle
+16/01 Nada
+17/01 Nada
+18/01 Dataset de datos más grande. Prueba de solución propuesta. No funcional debido a falta de hardware para computo. 
 Abandono el concurso. Tomo el dataset de doctor cat y lo utilizo para hacer todos los experimentos.
-22/04 Realize la pruebas sobre el dataset unicamente y los resultados son buenos. Claramente 
+22/01 Realize la pruebas sobre el dataset unicamente y los resultados son buenos. Claramente 
 los resultados en la pagina de kaggle tienen que ver con que los datos que uso en el modelo
 no son suficientenmente parecidos a los del dataset dde test de la competencia y ademas
 de que las NN no generalizan suficientemente bien.
+23/01 Redactando informe
+24/01 nada
+25/01 Escribiendo informe
+26/01 Redactando informe
 
-
-
-
+@TODO
+SOLUCIONAR PROBLEMA
+4. Realizar una corrida del NN
+5. Realizar inferencia y ver el resultado de subirlo a la pagina kaggle
+6. Tomar las screenshots y graficos generados para el informe.
+7. pegar las screenshots.
+8. Colocar citas de libros y marco teorico.
+9. Enviar el borrador con 1 experimento al profesor.
+10. Reunirme para saber cambios. Hago más experimentos? 
+11. ???
+12. Realizar una presentación para resumir el informe. Que sea corto.
 
 
 AI pipeline for text
