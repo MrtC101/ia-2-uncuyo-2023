@@ -6,3 +6,8 @@ openai-key.txt
 llama27b
 data/zip/
 data/models
+data/
+source/notebooks/
+source/scripts/
+source/train_model_Suggested.ipynb
+vitacora.md
