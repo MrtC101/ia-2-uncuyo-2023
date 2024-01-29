@@ -10,45 +10,77 @@
 
 ## Introducción
 
-El objetivo de este trabajo es utilizar modelos de machine learning enseñados durante el dictado de la materia AI II, específicamente aquellos enfocados en redes neuronales, con el fín de resolver un problema a elección.
+Este informe se lleva a cabo como trabajo final integrador para la materia Inteligencia Artificial 2 de la facultad de ingeniería UNCUYO.
 
-Para este trabajo he decidido participar en un [Desafío] de la pagina [Kaggle]. El desafió cociste en un problema de clasificación donde se debe detectar si un texto ha sido generado con IA (Inteligencia Artificial) o no.
+El objetivo planteado de este trabajo es la utilización de modelos de machine learning, enseñados durante el dictado de la materia, para la resolución de un problema a elección. Para este trabajo final se ha decidido que el trabajo se basara en un [Desafío] propuesto en [Kaggle], una pagina web para realizar competencias de resolución de problemas relacionados con la ciencia de datos. 
 
-## Indice:
-- [Propuesta](#propuesta)
+El desafió es un problema de clasificación de texto donde se debe detectar si ha sido generado por IA (Inteligencia Artificial) o por humanos. Entonces, con el fín de resolver este problema, utilizare el conjunto de datos provisto por el [Desafío] y los modelos basados en **redes neuronales**. 
+
+### Indice:
 - [Marco Teórico](#marco-teórico)
 - [Diseño experimental](#diseño-experimental)
 - [Conclusión](#conclusión)
 - [Alcance](#alcance)
 - [Referencias Bibliográficas y librerías](#referencias-bibliográficas-y-librerías)
 
-## Propuesta 
-
-Para resolver el tipo de problema planteado por del [desafío] hay modelos y técnicas que han surgido durante los últimos años que crecen en complejidad y costo computacional. Es debido a esto que para este trabajo pienso en enfocarme en modelos de poco costos con el fin de realizar la fase experimental. Esto principalmente debido a la carencia de recursos computacionales necesarios para poder realizar el entrenamiento de los modelos más complejos.
-
-En la sección [*Marco Teórico*](#marco-teórico) se explican brevemente los conceptos teóricos que justifican la elección del modelo y las decisiones tomadas para el [*Diseño Experimental*](#diseño-experimental). En tal sección, explicamos principalmente los detalles relacionados con análisis inicial de datos, pre-procesamiento de datos, entrenamiento del modelo y evaluación de resultados.
-
 ## Marco Teórico
-
-### Conjunto de datos des-balanciados
-
-### Preprocesamiento de texto
-
-### Modelos que se utilizan
 
 Para el experimento utilizare lo que se conoce como NN(Neural Network) o MLP(Multilayer preceptron). [Dive into deep learning].
 
-***Deifnición de Neurona***
-***Definición de gradiente***
-***Definicion de Bakward propagation***
-**Token***
-**Tokenización**
-***Bag of words***
-***embeddings***
-***Gradiente desvaneciente***
-***explocion del gradiente***
-***Curva ROC, ROC AUC, ROC AUC_PR***
-
+### Introducción a Redes Neuronales
+- Neurona Artificial:  
+   - Analogía con neuronas biológicas.
+   - Entradas (features) ponderadas, suma y función de activación.
+- Capa de Entrada:
+   - Representa las características de entrada del modelo.
+   - Cada nodo en la capa de entrada corresponde a una característica.
+- Capa Oculta:
+   - Neuronas y conexiones entre capas.
+   - Transformación no lineal de las entradas.
+   - Múltiples capas pueden formar una red profunda.
+- Capa de Salida:
+   - Resultado de la red neuronal.
+   - Número de nodos en la capa de salida depende del tipo de problema (clasificación, regresión, etc.).
+### Justificación de función de activación
+- Función de Activación:
+   - Introduce no linealidades en la red.
+   - Ejemplos: Sigmoide, ReLU (Rectified Linear Unit), Tangente hiperbólica.
+### Justificación de función de perdida
+- Función de Pérdida:
+   - Mide la discrepancia entre las predicciones y las etiquetas reales.
+   - Objetivo: Minimizar la pérdida durante el entrenamiento.
+### Justificación de algoritmo de optimización
+- Optimización:
+    - Algoritmos como Gradiente Descendente Estocástico (SGD) ajustan los parámetros del modelo para minimizar la pérdida.
+### Concepto de épocas de entrenamiento
+### Concepto de tamaño de batch
+- Epochs y Batch Size:
+   - Epochs: Número de veces que el modelo ve todo el conjunto de datos durante el entrenamiento.
+   - Batch Size: Número de ejemplos de entrenamiento utilizados en una iteración de actualización de parámetros.
+### Proceso de Tokenización de texto
+- Token: 
+   - Unidad individual resultante de dividir un texto, como una palabra o un carácter.
+- Tokenización:
+   - Proceso de dividir un texto en tokens para su análisis en el procesamiento de lenguaje natural.
+### Representación de texto con vectores
+- Bag of Words:
+  -  Representación vectorial de un documento basada en la presencia o frecuencia de palabras, sin tener en cuenta su orden. Cada palabra se convierte en una dimensión en un vector.
+- Embeddings:
+  -  Representaciones vectoriales de palabras o frases que capturan relaciones semánticas y similitudes en un espacio semántico. Ofrecen una representación más densa y contextual del significado de las palabras.
+### Proceso de Normalización
+#### gradiente desvaneciente 
+- Gradiente Desvaneciente:
+  -  Problema en el entrenamiento de redes neuronales donde los gradientes se vuelven muy pequeños en capas profundas, dificultando el aprendizaje efectivo de las capas cercanas a la entrada.
+#### exploción del gradiente
+- Explosión del Gradiente:
+  -  Problema opuesto al gradiente desvaneciente, donde los gradientes se vuelven extremadamente grandes en capas profundas, causando inestabilidad numérica y complicando el entrenamiento del modelo.
+### Curva ROC
+- Curva ROC (Receiver Operating Characteristic): 
+  - Representa la tasa de verdaderos positivos frente a la tasa de falsos positivos a varios umbrales de clasificación.
+- ROC AUC (Área bajo la curva ROC): 
+  - Métrica que cuantifica la capacidad discriminatoria de un modelo. Un valor más alto indica un mejor rendimiento.
+- ROC AUC_PR (Área bajo la curva de precisión-recuperación):
+  - Métrica relacionada con problemas de clasificación desbalanceada, evalúa la precisión y recuperación del modelo a diferentes umbrales de clasificación.
 #### ROC AUC
 An ROC curve (or receiver operating characteristic curve) is a plot that summarizes the performance of a binary classification model on the positive class. The x-axis indicates the False Positive Rate and the y-axis indicates the True Positive Rate.
 
@@ -74,10 +106,10 @@ Para esta face, principalmente seguí el siguiente workflow de Machine Learning.
 
 ```mermaid
 flowchart LR;
-      A[**Análisis** de datos];
-      B[**Pre-procesamiento** de datos];
-      C[**Entrenamiento** de modelo];
-      D[**Evaluación** del modelo];
+      A[Análisis de datos];
+      B[Pre-procesamiento de datos];
+      C[Entrenamiento de modelo];
+      D[Evaluación del modelo];
       A-->B;
       B-->C;
       C-->D;
@@ -85,161 +117,204 @@ flowchart LR;
 
 ### Obtención de datos
 
-Según la descripción sobre el conjunto de [datos](https://www.kaggle.com/competitions/llm-detect-ai-generated-text/data) del [desafío]:
+Según la descripción sobre el conjunto de [datos] del [desafío]:
 - El conjunto de datos esta compuesto por 10,000 ensayos, algunos escritos por estudiantes y otros escritos por large language models (LLMs).
 - Todos los ensayos fueron escritos con 7 consignas, y para cada una de ellas se le brindado al estudiante un textos fuentes en formato Markdown. Aun que estos textos pueden o no haber sido brindados a los LMM para la generación.
 - Solamente 2 de las 7 consignas se han incluido en el conjunto de datos de entrenamiento. Probablemente se desee generar más ensayos como datos de entrenamiento.
 
 Los datos brindados por el concurso presentan un des-balance severo de clases.
 
-***Graficas de desbalance de clases***
+      generated  
+      by Studentes    1375  
+      by LLM       3  
 
-Según lo leído en la bibliografía [libro de invalance] existen técnicas y métricas que se pueden utilizar con conjuntos de datos des-balanceados. Pero, aun así debido al gran des-balance que hay en el conjunto de entrenamiento es imposible obtener un modelo que pueda generalizar bien con tan pocos datos.
+![Datos iniciales des-balanceados](./images/initial_data_invalanced.png)
 
-Generar datos nuevos con LLM's en este caso no es trivial. Sobre todo porque es necesario tener acceso a LLM de pago como chatGPT para generar varios ejemplos.
+Según lo leído en [Imbalanced Classification with Python] existen técnicas y métricas que se pueden utilizar con conjuntos de datos des-balanceados. Pero, aun así, debido al gran des-balance que hay en el conjunto de entrenamiento es imposible obtener un modelo que pueda generalizar bien con tan pocos ejemplos de la clase minoritaria. 
 
-Realize una investigación para correr el LLM open source llama-2 de manera local pero la cantidad de recursos computacionales necesarios para su funcionamiento es grande.
+Generar datos nuevos con LLM's en este caso no es trivial. Esto se debe a los aranceles que se deben pagar para tener acceso a LLM's pre-entrenadas que permitan generar nuevas instancias para el entrenamiento. También se evaluó la posibilidad de realizar un despliegue de un LLM open source "llama-2" en un equipo de manera local pero la cantidad de recursos computacionales necesarios para su funcionamiento excedía los disponibles.
 
-Por suerte uno de los participantes de la competencia se dedico a generar datos de entrenamiento exclusivos para este [desafío] y los puso a disposición de todos los participantes.
-El conjunto de datos [drcat] incluso es utilizado en algunas de las mejores solución de la competencia.
+Como solución a este inconveniente, se decidió utilizar un [nuevo conjunto de datos] generado y puesto a disposición por uno de los participantes de la competencia.
 
 ### Análisis de Datos de Entrada
 
-Claramente el conjunto de datos [drcat] posee una distribución de probabilidad de sus datos distinta a la del conjunto de datos del [desafío], por lo que el modelo resultante es necesario que presente buenas posibilidades de generalización. Esto esta planteado de esta manera como parte del desafío.
+Se puede intuir que el [nuevo conjunto de datos] posee una distribución de probabilidad de sus datos diferente a la de el conjunto original de [datos] del [desafío], por lo que, la mejor solución al problema planteado debe estar implementada con un modelo con buena capacidad de generalización.
 
-***Graficas de desbalance inicial vs balance de clases actual***
+      generated      
+      1    46203
+      0    27370
+
+![Desbalance de del nuevo conjunto de datos](./images/new_data_invalaced.png)
 
 ### Pre-procesamiento de datos
 
-Según lo leído en la bibliografía [libro de features] para el pre-procesamiento de **texto** hay varias técnicas que se utilizan para trasformar un texto en representaciones vectoriales. Dependiendo de la cantidad de texto, y si para el problema a resolver es nesesario obtener una representación por palabra, por oración, por pararrafo o por documento. Se utilizan técnicas desde **Bag of words** hasta complejos modelos como ***word2vec*** que se encarga de crear [embeddings].
+Según lo leído en [Feature Engineering for Machine Learning] y [Art of feature engineering], para el pre-procesamiento de **texto** hay varias técnicas para trasformar texto en representaciones vectoriales. Su elección, depende de la cantidad de texto de cada instancia del conjunto de datos y el nivel de granularidad con el que se entrena el modelo, es decir, si se entrena con palabra, oración, párrafo o documentos.
 
-Analizando las características de nuestro problema, opte por utilizar embeddings como representación de cada documento.
-
-Como resultado el pre-procesamiento de los datos de entrada sigue los siguientes pasos:
-- [Conjunto de entrenamiento y de prueba](#separación-en-conjunto-de-entrenamiento-y-conjunto-de-prueba)
+Dadas las características del problema, se ha decidido que se utilizara  un [embedding] para la representación vectorial de cada instancia o documento en el conjunto de datos. Para realizar esta transformación, se realiza el procedimiento con los siguientes pasos:
+- [Separación en conjunto de entrenamiento y de prueba](#separación-en-conjunto-de-entrenamiento-y-conjunto-de-prueba)
 - [Tokenization](#tokenización)
 - [Limpieza de datos](#limpieza-de-datos)
 - [Creación de Embeddings](#representación-vectorial-embeddings)
-- [Inferencia de características](#inferencia-de-algunos-atributos-extra)
+- [Inferencia de nuevas características](#inferencia-de-algunos-atributos-extra)
 - [Normalización](#normalización-del-conjunto-de-datos)
 
 #### Separación en conjunto de entrenamiento y conjunto de prueba.
 
-Para está separación usualmente se acostumbra una separación de 70% de entrenamiento y 30% de prueba. Pero inspirandome en la competecia realize una separación de 40% de entrenamiento y 60% de prueba.
 
-Principalmente el concurso entregaba un conjunto de entrenamiento que concistia en el 10% del conjunto de total de datos y te incitaba a la generación de más datos. Luego solo se relaizaba pruebas sobre el 40% del conjunto de datos restante y se guardaba un 60% para el calculo de puntaje final luego de terminar la competencia.
+El [desafío] pone a disposición de los participantes un conjunto de datos de entrenamiento compone el 10% del conjunto de datos total. Del 90% restantes, el 46% del conjunto de datos se utiliza para calcular el puntaje publico y un 56% para la puntaje privado.
+
+Para el entrenamiento de un modelo de machine learning se acostumbra la separación del conjunto de datos en un 70% de entrenamiento y 30% de prueba. Pero, siguiendo en las proporciones utilizadas en el [deafío], se decidió realizar una separación de 40% para entrenamiento y 60% para prueba del conjunto de datos.
 
 #### Tokenización
 
-Lo primero que debo realizar con cada texto que hay en el conjunto de datos es realizar una [tokenización]. 
+El primer pazo para realiza entrenamiento de un modelo con texto es realizar un proceso de [tokenización]. Tomando inspiración del siguiente notebook referenciado en la competencia [Train your own Tokenizer], se decidió crear y entrenar un tokenizador utilizando la librería transformers de HuggingFace [Tokenizers]. Este tokenizador esta basado en el algoritmo [Byte-Pair Encoding Tokenizer](https://huggingface.co/learn/nlp-course/chapter6/5?fw=pt), que tiene propiedades que resultan útiles en nuestro problema.
 
-Tomando inspiración del siguiente notebook referenciado en la competencia [Entrenar tu propio tekenizador](https://www.kaggle.com/code/datafan07/train-your-own-tokenizer), decidí crear un tokenizador utilizando la librería transformers de HuggingFace [tokenizers](https://huggingface.co/docs/transformers/main_classes/tokenizer).Concretamente el tokenizador basado de [ Byte-Pair Encoding Tokenizer](https://huggingface.co/learn/nlp-course/chapter6/5?fw=pt), que según es mencionado tiene ciertas propiedades que resultan utiles en nuestro problema (https://huggingface.co/docs/transformers/tokenizer_summary).
+Propiedades:
+- ***Adaptabilidad al Vocabulario***:
+    El BPE se destaca por su capacidad para adaptarse al conjunto de datos construyendo un vocabulario específico a partir de las subunidades más frecuentes. A diferencia de algunos tokenizadores fijos, como el basado en palabras, el BPE puede ajustar dinámicamente su vocabulario según la complejidad del texto.
+- ***Manejo Efectivo de OOV y Palabras Raras***:
+    El BPE aborda eficazmente las palabras fuera del vocabulario predefinido y las palabras raras mediante la descomposición en subunidades que ya están en el vocabulario. Esto lo distingue de tokenizadores que pueden tener dificultades con palabras poco frecuentes o desconocidas.
 
-***Ejemplo de texto tokenizado***
+Cadena de entrada al tokenizador:   
+      "Martín's bag"  
+Lista de salida con cada Token:  
+      ['Ġmartin', "'s", 'Ġbag']  
 
 #### Limpieza de datos
 
-Además de eliminar los textos repetidos en el conjunto de datos inicial. Cuando se trabaja con texto, según el libro [feature engineearing], se realiza una eliminación de palabras que no aportan información al modelo, conocidas como ***stopwords***.
+Según el libro [Feature Engineering for Machine Learning], una practica común para limpieza de datos de texto es realizar una eliminación de palabras que no aportan información significativa al modelo debido a su frecuencia de aparición, estas palabras se denominan ***stopwords***. Para hacer este proceso de eliminación se utilizo el conjunto de [stop words] provistos por la librería [Natural Language Toolkit](https://www.nltk.org/index.html). 
 
-Para hacer este proceso de eliminación utilize de palabras utilize el conjunto de [stop words](https://www.nltk.org/search.html?q=stopwords) que están provistos por la libreria [Natural Language Toolkit](https://www.nltk.org/index.html)
-
-***Imagen de stopwords***
+Ejemplo de stopwords:
+      ['i',
+      'me',
+      'my',
+      'myself',
+      'we',
+      'our',
+      'ours',
+      'ourselves',
+      'you',
+      "you're",
+      "you've",
+      "you'll",
+      "you'd",
+      'your',
+      'yours',
+      'yourself',
+      'yourselves',
+      'he',
+      'him',
+      'his',
+      'himself',
+      'she',
+      "she's",
+      'her',
+      'hers',
+      ...
+      "weren't",
+      'won',
+      "won't",
+      'wouldn',
+      "wouldn't"]
 
 #### Representación vectorial (Embeddings)
 
-Teniendo en cuenta que la representación vectorial puede estar dada desde palabras hasta documentos, tome la decisión de obtener una representación por documento para facilitar la entrada de datos al modelo de ML elegido. 
+La técnica para crear representaciones vectoriales de texto con embeddings se realiza mediante una familia de algoritmos que en función del texto tokenizado crea un espacio vectorial para cada palabra. En este trabajo se eligió un modulo basado en la familia de algoritmos [word2vec], pero existen otros.
 
-Como se recomienza para obtener representaciones complejas de vectores para gran cantidad de texto se utilizan modelos pre-entrenados que permiten hacer esta conversion.
+Como este modulo solo permite crear una representación vectorial solo por palabra, se decidió utilizar otro modulo de gensim llamado [doc2vec] que permite crear representaciones vectoriales para **documentos completos**. Además, a diferencia de word2vec, permite y realizar **inferencia de vectores** para nuevos documentos no han sido vistos durante la face de entrenamiento. Esto resulta especialmente util para el conjunto de datos de prueba es totalmente desconocido.
 
-Para este trabajo elegi utilizar el modelo basado en word2vec, aunque existen otros.
-
-***Modelos pre entrenados??? o son solo algoritmos complejos?????***
-
-La biblioteca de gensim que provee modelos ya pre entrenados para mapear palabras a embeddings, el modelo se llama [word2vec](https://radimrehurek.com/gensim/models/word2vec.html).
-
-Como este modelo pre entrenado solo permite crear una representación vectorial por palabras. Como extension de este modulo de gensim existe el modulo de la librería gesim [doc2vec](https://radimrehurek.com/gensim/models/doc2vec.html).
-
-Este modelo a diferencia de word2vec permite crear representaciones de documentos completos y realizar inferencia para nuevos documentos no vistos durante la face de entrenamiento. Es decir que podemos obtener un nuevo embedding para conjuntos de datos nuevos.
-
-Esto resulta especialmente util debido a que el conjunto de dedatos que se utilizara para test es totalmente desconocido.
-
-Como resultado se generan embedding con 100 atributos, elegí esta cantidad de atributos de manera arbitraria ya que me pareció una cantidad suficiente.
-
-***Imagen de vector con 100 parametros***
-
+Se decidió que la cantidad de componentes o atributos de los embedding generados sería 100 ya que es una cantidad suficiente como para representar características de un documento y la elección de otra cantidad requeriría un análisis y experimentación adicional que no se ha llevado a cabo en este trabajo pero que como parte de un futuro alcance.
+      
 #### Inferencia de algunos atributos extra
 
-Para probar si generabán mejores resultados cree 4 nuevos atributos para cada documentos donde espesificaba el la cantidad de tokens, cantidad de puntos, etc...
+Adicionalmente, se realizo una fase de inferencia de atributos de cada texto que se presupone que se pierden después de la transformación del texto a embedding, estos a tributos son:
 
-***Imagen de las columnas agregadas del dataset***
+- token_num: cantidad de tokens.
+- sent_num: cantidad de oraciones.
+- punct_sym: cantidad de símbolos de puntuación como puntos y comas.
+- apostrof_sym: cantidad de apostrofes.
+- unk_num: cantidad de tokens desconocidos en el texto.(palabras que no forman parte del vocabulario)
 
 #### Normalización del conjunto de datos
 
-Como parte del pre-procesamiento es importante realizar una normalización de los datos, para evitar problemas de [gradiente desvaneciente] o la [exploción del gradiente]. Por eso, por cada vector dividi sus componente por su modulo de tal manera que cada enbedding en realizad es un vector de modulo uno. Luego agregue un nuevo atributo con la norma correspondiente a cada vecto.
-Finalmente tome todos los otros atributos que no eran parte del y normalización max-min.
+Como parte del pre-procesamiento es importante realizar una normalización de los datos, para evitar problemas de [gradiente desvaneciente](#gradiente-desvaneciente) o la [exploción del gradiente](#exploción-del-gradiente). Por eso, por cada vector se dividió sus componente por su modulo de tal manera que cada enbedding se convierta en un vector con norma uno. Adicionalmente, se agrego la norma del vector como atributo, para que la información relativa al tamaño de cada vector no se pierda.
 
-***Imagen de como quedaron los valores del conjunto de datos***
-***Imagen de describe del conjunto de datos***
+***Vector de 100 elementos con sus valores normalizados.***  
+      
+            [0.024149.-0.012406.-0.214346.0.064996,0.081732,0.050830,-0.042659,...,-0.113359,0.072855,0.250193]  
+
+Finalmente se tomo todos los otros atributos inferidos y el modulo de cada vetor y se le aplico normalización max-min, con el fín de que los valores quedaran entre 0 y 1.
 
 ### Entrenamiento
 
-Para el entrenamiento he utilizado la tecnica de k-foldding que permite una mejor que según es reocmendaod en la bibliografía permite un entrenamiento menos sesgado y permite mejor generalización por parte dle modelo. Lo recomendado es k=10. Pero al inicialmente tratarse de un conjunto de datos desbalanciados he utilizado un tecnica de stratified-k-foldding que obtiene los folds siguiendo la distribuicón de datos incial para que de esta manera no tener problemás con la falta de instancias de una clase en algún fold.Para esto he utilizado la bilbioteca sikit learn.
+Para el entrenamiento se ha utilizado la técnica de **k-folding** con k=10 que es recomendado en la bibliografía y permite un entrenamiento menos sesgado y mejor generalización del por parte del modelo. 
+Aún que, al tratarse de un conjunto de datos des-balanceados, se debe utilizar [StratifiedKFold] para evitar problemas al crear los folds donde algún fold se queda sin instancias de alguna de las clases del conjunto de datos. Para evitar este problema [StratifiedKFold] genera folds que respeten la distribución de datos inicial.
 
-Como framework para facilitar el entrenamiento y la definción de la arquitectura de la red neuronal he utilizado la libreria [keras].
+Como framework para facilitar el entrenamiento y la definición de la arquitectura de la red neuronal se ha utilizado la librería [Keras].
 
-PAra la qeuitectura tuve en cuenta que la cantidad de neuronas fuera suficientemente capaz de geenrar overfitt sobre lodatos. Unavez alcanzado ente punto comence a aplicar métodos de regularización para evitar esto. De ahí que peuda verse que hay regularización l1,l2 y una capa de dropout en la arquitectura.
-Tras unas cuantas pruebas decidi unicament eutilizar la tecnica de dropout unicamente ya que la regularización l1 y l2 reusltaba en un overfitting del modelo. Por lo que utilizando un porcentaje de 40% de dropout en la capa intermedia fue suficientes como para onbtener resultados aceptables.
+Para decidir el tamaño de la arquitectura se realizarón varias pruebas con diferentes tamaños y se llego a la conclusión de que el tamaño influye directamente en la cantidad de epocas nesesarias para generar overfitting sobre los datos pero, en principio, la capacidad de aprendizaje del modelo no está limitado por el tamaño de la arquitectura.
 
-***Imagen de la Arquitectura***
+Para seleccionar la cantidad de épocas durante las cuales se entrenaría el modelo se ja tenido en cuenta que el entrenamiento se realiza 10 veces con diferentes conjuntos de datos debido ala utilización de la técnica **10-folding**. Por lo que epochs=1, implica entrenar el modelo durante 10 épocas con diferentes datos.
 
-Para seleccionar la cantidad de epocas durante las cuales se entrenaría el modelo he tenido en cuenta que el entrenamiento se realizara 10 veces con diferentes conjuntos de datos debido a los folds. Por lo que epochs=10, en realidad significa entrenar el modelo 100 epocas.
+Arquitectura:
+- Arquitectura con una capa de entrada con la misma cantidad de neuronas que la cantidad de atributos.
+- Una capa oculta con 1000 neuronas y función de activación relu.
+- Una cap de salida son sigmoide para que la salida este entre 0 y 1.
 
-***imagen de compile***
+Metricas y optimizador:
+- Como optimizador utilizo el algoritmo adam.
+- para la función de perdida binary cross entropy.
+- como métrica adicional el valor AUC que representa el area bajo la curva ROC.
 
-Luego de realizar el entrenamiento del modelo realize una prueba sobre el total del conjunto de datos de entrenamiento y obtuve los siguientes resultados de las metricas
-
-***AUC AUCRE***
-
-*** Matriz de confución ***
+Epocas y batch:
+- 1 epoca que equivale a entrenar 10 veces. una vez con cada uno de los 10 fold.
+- un batch size de 100, es pequeño por lo que los pesos del modelo se actualizan varias veces durante una sola época.
 
 ### Verificación del rendimiento del modelo
 
 #### Métricas
 
-Para evaluar el rendimiento del modelo he elegido las métricas [ROC AUC] y [ROC AUC PR]. Además de que son las utilizadas en el [desafío], estas métricas tienen propiedades que sirven para el problema a resolver.
+Para evaluar el rendimiento del modelo se ha elegido las métricas [ROC AUC](#roc-auc) y [ROC AUC PR](#roc-auc-pr). Además de que son las utilizadas en el [desafío], estas métricas tienen propiedades que sirven para el problema a resolver.
 
-- No asumen la distribución del conjunto de prueba ***citar libro***
-- Se utilizan en casos donde se presentan conjuntos de datos desvalanciados ya que se basan en la matriz de confución.
-- el valor resultado que se obtiene del area bajo la curca ROC permite comparar distintos clasificadores. 
+- Según el libro [Imbalanced Classification with Python], estas métricas son aparte del conjunto **Ranking Metrics** las cuales tienen la característica de no asumir que la distribución de los datos en el conjunto de entrenamiento son los mismo que tendrá el conjunto de dato no visto.
+- Se utilizan en casos donde se presentan conjuntos de datos des-balanceados ya que se basan en las métricas precition y recall.
+- El area bajo las curvas ROC es un valor que puede utilizarse para comparar el rendimiento de modelos entre sí. 
 
-#### Resultados 
+#### Resultados del entrenamiento
 
-Finalmente realize la prueba sobre el conjunto de datos de prueba 
-dandome un valor del 0.9
-lo cual resulta alentador a primeras impresiones
+Al evaluar el modelo sobre el conjunto total de entrenamiento obtenemos este resultado:
 
-***Pegar grafico***
+![Curvas ROC de entrenamiento](./images/ROC%20de%20entrenamiento.png)
 
-Pero luego al probarlo sobre el conjunto de datos del concurso podemos ver que el
-resultado es notablemente bajo.
+![Matriz de confusión de entrenamiento](./images/confusion%20de%20entrenamiento.png)
 
-***score del concurso**
+Se puede ver que el modelo fue capaz de aprender gran parte de los datos y al realizar una inferencia obtiene un valor de ROC AUC y ROC AUC PR alto.
+
+#### Resultados de inferencia
+
+Finalmente se realizo una predicción sobre el conjunto de datos de prueba dando como resultado un valor muy altos lo cual, bajo una primera impresiones, supone un gran rendimiento del modelo.
+
+![Curvas ROC de prueba](./images/ROC%20de%20prueba.png)
+
+![Matriz de confusión de prueba](./images/confusion%20de%20prueba.png)
+
+Pero a pesar de su buen rendimiento con los datos de prueba al realizar inferencias sobre los datos de prueba del [desafío] podemos notar que el rendimiento del modelo es notablemente más bajo.
+
+![Puntaje del rendimiento del modelo en kaggle](./images/puntaje.png)
+
+El puntaje privado es el rendimiento del modelo sobre el 54% del conjunto de datos de prueba.
+El puntaje publico es el rendimiento del modelo sobre el otro 46% del conjunto de datos de prueba.
 
 ## Conclusión
 
-Si bien el rendimiento de la red neuronal más sencilla que podemos construir función bien para realizar la clasificación de textos en el conjunto de datos seleccionado. Podemós notar que existe una notable dificultad a la hora de realizar predicciones con datos no vistos. Es decir, que no generaliza lo suficientemente bien. 
-Esto posiblemente se de debido a que el conjunto de datos tulizado en el entrenamiento y en la validación tienen una distribución de probabilidad muy diferente a la que puede encontrarse en el conjunto de datos que hay en la competencia. es por eso que se han obtenido puntajes tan bajos
-el mejor fue de 0.65. y podemso concluir que el limite de esta solución se encuentr en el modelo mismo ya que las mejores soluciones propuestas en el concurso todos han sido utilizando transformes, los cuales justamente  han demostrado un mejor rendimiento en generalización que las demás tecnicas vistas.
+Si bien el rendimiento de la red neuronal más sencilla que podemos construir función bien para realizar la clasificación de textos en el conjunto de datos seleccionado para entrenamiento. Podemos notar que existe una notable dificultad a la hora de realizar predicciones con los datos de prueba del [desafío]. Es decir, que el modelo no es capaz de generalizar lo suficientemente bien. 
+
+Una posible explicación para este caso es que el conjunto de datos de entrenamiento tiene una distribución de probabilidad muy diferente al que tiene el conjunto de prueba del desafío. Si esto es así, es necesario utilizar modelos más complejos que permitan mejor generalización, por ejemplo CNN,RNN, transformes o modelos de procesamiento de lenguaje pre-entrenados.
 
 ### Alcance
 
-Por lo investigado y las soluciones propuestas por los participantes del concurso, la mejor solución es utilizar modelos de transformes pre entrenados como BERT, distilBERT incluso la mejor solución propuesta utiliza un transformer pre-entrenado llamado distilroBERTa. Estos modelos requieren gran cantidad de poder de computo que excede incluso los que se encuentran disponibles de manera gratuita por [colab](https://colab.research.google.com/).
-
-
-Se realizarón experimentos con NN y poco con CNN. 
-Pero las pruebas con modelos como RNN y transformers pre entrenados no han sido posibles de realizar debido a la falta de recursos de hardware, que incluso superan las brindadas por google colab. 
-
-Las mejores soluciónes de la comeptencias proponen realizar una tokenización de los textos y luego alimentar a bert o distilbert con estos datos, para que genere una clasificaciones. Esto ha dado resultados en la competencia con un puntaje mayor a 0.96.
+Por lo investigado y las soluciones propuestas por los participantes del concurso, las implementaciones que obtuvieron pontajes más altos al realizar predicciones sobre el conjunto de pruebas del [desafío]
+han sido aquellas que utilizaban modelos basados en transformes pre-entrenados como BERT, distilBERT o distilroBERTa. El entrenamiento o fine-tunning de este tipo de modelos exige recursos de computo que excede los disponibles de manera gratuita en [Google Colab](https://colab.research.google.com/). Se realizo un intento de entrenamiento de BERT en Google Colab, pero debido a que la primera época de entrenamiento tardo aproximadamente 45 minutos, se concluyo en no utilizarlo en este proyecto.
 
 ## Referencias Bibliográficas y Librerías
 
@@ -262,16 +337,15 @@ Las mejores soluciónes de la comeptencias proponen realizar una tokenización d
 
 - [Train your own Tokenizer]
 
-
-
 [Train your own Tokenizer]:https://www.kaggle.com/code/datafan07/train-your-own-tokenizer
 
-## Librerías y frameworks
+### Librerías y frameworks
 
 - [Pandas]
 - [Numpy] 
 - [Matplotlib]
-- [Stopwords] 
+- [Stopwords]
+- [word2vec]
 - [Doc2vec]
 - [StratifiedKFold] 
 - [Resample]
@@ -281,6 +355,8 @@ Las mejores soluciónes de la comeptencias proponen realizar una tokenización d
 - [Keras]
 
 
+[word2vec]:https://radimrehurek.com/gensim/models/word2vec.html
+[Datos]:https://www.kaggle.com/competitions/llm-detect-ai-generated-text/data
 [Kaggle]:https://www.kaggle.com/
 [Desafío]:https://www.kaggle.com/competitions/llm-detect-ai-generated-text  
 [Nuevo conjunto de datos]:https://www.kaggle.com/datasets/thedrcat/daigt-v4-train-dataset

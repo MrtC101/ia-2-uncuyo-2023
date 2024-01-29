@@ -56,13 +56,13 @@ de que las NN no generalizan suficientemente bien.
 24/01 nada
 25/01 Escribiendo informe
 26/01 Redactando informe
+27/01 Completando marco teórico del informe.
+28/01 Completando el informe y re escribiendo.
+29/01 
+
+
 
 @TODO
-SOLUCIONAR PROBLEMA
-4. Realizar una corrida del NN
-5. Realizar inferencia y ver el resultado de subirlo a la pagina kaggle
-6. Tomar las screenshots y graficos generados para el informe.
-7. pegar las screenshots.
 8. Colocar citas de libros y marco teorico.
 9. Enviar el borrador con 1 experimento al profesor.
 10. Reunirme para saber cambios. Hago más experimentos? 
@@ -70,59 +70,34 @@ SOLUCIONAR PROBLEMA
 12. Realizar una presentación para resumir el informe. Que sea corto.
 
 
-AI pipeline for text
-1. Tokenized
-2. Embedding or bag of words
-3. Model
-4. Train
-
-1. Tokenizar
-    1. Codear un Tokenizer (NO)
-    2. nltk.word_tokenizer
-    3. tokenizer.tokenizer (Entrenar un tokenizer)
-    4. transformers.BertTokenizer (Entrenar bert para tokenizar)
-(Quitar stopwords)
-2. Embeddings
-    1. gensim.word2vec
-    2. gensim.doc2vec 
-    3. GloVE
-    4. fastVec
-    5. transformer.Bert
-3. Models
-    1. NN
-    2. CNN
-    3. RNN
-    4. BERT
-4. Training using keras.
-
-Que hemos probado:
-1. score=0.5
-    1. Word_tokenizer
-    2. doc2vec
-    3. NN
-2. score=0.7
-    1. tokenizer.tokenizer
-    2. doc2vec
-    3. NN
-
-Puedo probar:
-1. 
-    1. tokenizer.tokenizer
-    2. doc2vec
-    3. CNN
-2. 
-    1. BERTTokenizer
-    2. doc2vec
-    3. CNN    
-3. 
-    1. tokenizer.tokenizer
-    2. doc2vec
-    3. RNN
-4. 
-    1. BERTTokenizer
-    2. doc2vec
-    3. RNN    
-5. 
-    1. BERTokenizer
-    2. BERT
-6. OTROS TRANSFORMERS
+Días
+29 lunes
+30 
+31 
+1
+2
+3
+4
+5 lunes
+6
+7
+8
+9
+10
+11
+12 lunes
+13
+14
+15
+16
+17
+18
+19 lunes
+20 <---- PRIMERA MESA
+21
+22
+23
+24
+25
+26 lunes
+27 <---- SEGUNDA MESA
