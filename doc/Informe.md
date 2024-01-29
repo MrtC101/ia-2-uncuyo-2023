@@ -27,62 +27,64 @@ El desafió es un problema de clasificación de texto donde se debe detectar si 
 
 Para el experimento utilizare lo que se conoce como NN(Neural Network) o MLP(Multilayer preceptron). [Dive into deep learning].
 
-### Introducción a Redes Neuronales
-- Neurona Artificial:  
-   - Analogía con neuronas biológicas.
-   - Entradas (features) ponderadas, suma y función de activación.
-- Capa de Entrada:
-   - Representa las características de entrada del modelo.
-   - Cada nodo en la capa de entrada corresponde a una característica.
-- Capa Oculta:
-   - Neuronas y conexiones entre capas.
-   - Transformación no lineal de las entradas.
-   - Múltiples capas pueden formar una red profunda.
-- Capa de Salida:
-   - Resultado de la red neuronal.
-   - Número de nodos en la capa de salida depende del tipo de problema (clasificación, regresión, etc.).
 ### Justificación de función de activación
-- Función de Activación:
-   - Introduce no linealidades en la red.
-   - Ejemplos: Sigmoide, ReLU (Rectified Linear Unit), Tangente hiperbólica.
+Las funciones de activación, según [Dive into deep learning], deciden cuando una neurona debe activarse calculando la suma de pesos y añadiendo un sesgo. Existen diferentes funciones de activación y la mayoría quitan la linealidad al modelo.
+
+Para este proyecto se ha elegido la función de activación **ReLU**. Esta función a pesar de su simplicidad tiene un buen rendimiento y se define como
+$$ \text{ReLU}(x) = \text{max}(x,0)$$
+
+Básicamente toma todos los valores negativos y los convierte a 0.
+
+Además para la neurona de salida, al tratarse de una clasificación binaria de clases, hemos utilizado la función de activación **sigmoid** que tiene la propiedad de devolver valores entre 0 y 1
+$$\text{sigmoid}(x)=\frac{1}{1+\text{exp}(-x)}$$
+
 ### Justificación de función de perdida
-- Función de Pérdida:
-   - Mide la discrepancia entre las predicciones y las etiquetas reales.
-   - Objetivo: Minimizar la pérdida durante el entrenamiento.
-### Justificación de algoritmo de optimización
-- Optimización:
-    - Algoritmos como Gradiente Descendente Estocástico (SGD) ajustan los parámetros del modelo para minimizar la pérdida.
-### Concepto de épocas de entrenamiento
-### Concepto de tamaño de batch
-- Epochs y Batch Size:
-   - Epochs: Número de veces que el modelo ve todo el conjunto de datos durante el entrenamiento.
-   - Batch Size: Número de ejemplos de entrenamiento utilizados en una iteración de actualización de parámetros.
+La función de perdida indica que tanto error cometido por la inferencia realizado por el modelo en durante el entrenamiento, el valor que devuelve está función es aquel sobre el cual los algoritmos de optimización buscan reducir a 0.
+
+Al tratarse de un problema de clasificación binaria se decidió utilizar la función de perdida [Binary Cross Entropy](https://keras.io/api/losses/probabilistic_losses/)
+
+### Justificación de método de optimización
+Como método de optimización se ha elegido el algoritmo [**Adam**](https://keras.io/api/optimizers/adam/), el cual se trata de un método de gradiente estomático descendente basado en la estimación adaptativa de momentos de primer y segundo orden.
+### Concepto de épocas de entrenamiento y tamaño de batch
+La cantidad de **épocas** de entrenamiento indica la cantidad de veces que el modelo vera el conjunto de datos de entrenamiento completo.
+
+El **tamaño de batch** indica la cantidad de instancias que se muestran al modelo antes de realizar una actualización de parámetros durante el proceso de optimización.
+
+La asignación de un valor a ambos parámetros depende del problema a resolver y se realiza mediante la experimentación. Ambos parámetros afectan notablemente la capacidad de aprendizaje de los datos durante el entrenamiento.
+
 ### Proceso de Tokenización de texto
-- Token: 
-   - Unidad individual resultante de dividir un texto, como una palabra o un carácter.
-- Tokenización:
-   - Proceso de dividir un texto en tokens para su análisis en el procesamiento de lenguaje natural.
+El termino **Token** se refieren a la unidad atómica de un texto, la cual se constituye a través de decisiones de diseño. 
+
+La **Tokenización** se refiere al proceso que se realiza al transformar un texto en una colección de *Tokens*.
+
+Para realizar este proceso existen diferentes algoritmos como :
+1. Rule-Based Tokenization
+2. Whitespace-Based Tokenization
+3. Regular Expression-Based Tokenization
+3. Byte-Pair Encoding (BPE) Tokenization
+4. Finite State Machine-Based Tokenization
+
 ### Representación de texto con vectores
-- Bag of Words:
-  -  Representación vectorial de un documento basada en la presencia o frecuencia de palabras, sin tener en cuenta su orden. Cada palabra se convierte en una dimensión en un vector.
-- Embeddings:
-  -  Representaciones vectoriales de palabras o frases que capturan relaciones semánticas y similitudes en un espacio semántico. Ofrecen una representación más densa y contextual del significado de las palabras.
+- **Bag of Words**: Representación vectorial de un documento basada en la presencia o frecuencia de palabras, sin tener en cuenta su orden. Cada palabra se convierte en una dimensión en un vector.
+- **Embeddings**: Representaciones vectoriales de palabras o frases que capturan relaciones semánticas y similitudes en un espacio semántico. Ofrecen una representación más densa y contextual del significado de las palabras.
 ### Proceso de Normalización
-#### gradiente desvaneciente 
-- Gradiente Desvaneciente:
-  -  Problema en el entrenamiento de redes neuronales donde los gradientes se vuelven muy pequeños en capas profundas, dificultando el aprendizaje efectivo de las capas cercanas a la entrada.
-#### exploción del gradiente
-- Explosión del Gradiente:
-  -  Problema opuesto al gradiente desvaneciente, donde los gradientes se vuelven extremadamente grandes en capas profundas, causando inestabilidad numérica y complicando el entrenamiento del modelo.
+
+Según [Art of feature engineering], el proceso de escalamiento o normalización de atributos busca facilitar la inferencia de relaciones entre ellos colocándoos todos en una escala relativa para facilitar su comparación.
+
+Este proceso es importante a la hora de trabajar con modelos cuyo entrenamiento está basado en algoritmos de gradiente descendente debido a dos posibles problemas que pueden surgir:
+
+#### Gradiente desvaneciente 
+**Gradiente Desvaneciente**: Es el problema en el entrenamiento de redes neuronales donde los gradientes se vuelven muy pequeños en capas profundas, dificultando el aprendizaje efectivo de las capas cercanas a la entrada.
+
+#### Explosión del gradiente
+**Explosión del Gradiente**: Es el problema opuesto al gradiente desvaneciente, donde los gradientes se vuelven extremadamente grandes en capas profundas, causando inestabilidad numérica y complicando el entrenamiento del modelo.
+
 ### Curva ROC
-- Curva ROC (Receiver Operating Characteristic): 
-  - Representa la tasa de verdaderos positivos frente a la tasa de falsos positivos a varios umbrales de clasificación.
-- ROC AUC (Área bajo la curva ROC): 
-  - Métrica que cuantifica la capacidad discriminatoria de un modelo. Un valor más alto indica un mejor rendimiento.
-- ROC AUC_PR (Área bajo la curva de precisión-recuperación):
-  - Métrica relacionada con problemas de clasificación desbalanceada, evalúa la precisión y recuperación del modelo a diferentes umbrales de clasificación.
-#### ROC AUC
-An ROC curve (or receiver operating characteristic curve) is a plot that summarizes the performance of a binary classification model on the positive class. The x-axis indicates the False Positive Rate and the y-axis indicates the True Positive Rate.
+A partir de lo leído en [Imbalanced Classification with Python]:
+
+#### ROC Curve
+La ROC curve (**R**eceiver **O**perating **C**haracteristic curve) es un gráfico que resume el rendimiento de un modelo de clasificación binaria basándose en la clase positiva o mayoritaria,
+El eje x indica la tase de Falsos Positivos y el eje y la tasa de Verdaderos Positivos
 
 $$
 \text{TruePositiveRate} = \frac{\text{TruePositive}}{\text{TruePositive} + \text{FalseNegative}}
@@ -90,15 +92,19 @@ $$
 $$
 \text{FalsePositiveRate} = \frac{\text{FalsePositive}}{\text{FalsePositive} + \text{TrueNegative}}
 $$
-#### ROC AUC-PR
-A precision-recall curve (or PR Curve) is a plot of the precision (y-axis) and the recall
-(x-axis) for different probability thresholds.
+
+**ROC AUC** (Área bajo la curva ROC): es una métrica que cuantifica la capacidad discriminatoria de un modelo. Esta se calcula a partir del area bajo la  curva ROC y un valor más alto indica un mejor rendimiento.
+
+#### PR Curve
+La curva de precision-recall es una gráfica que evalúa el rendimiento del modelo basándose en tanto la clase mayoritaria como minoritaria. En el eje y se gráfica la precisión y en el eje x la recuperación.
 $$
 \text{Precision} = \frac{\text{TruePositive}}{\text{TruePositive} + \text{FalsePositive}}
 $$
 $$
 \text{Recall} = \frac{\text{TruePositive}}{\text{TruePositive} + \text{FalseNegative}}
 $$
+**ROC AUC_PR** (Área bajo la curva de precisión-recuperación): Es una métrica relacionada con problemas de clasificación des-balanceados, evalúa la precisión y recuperación(recall) del modelo a diferentes umbrales de clasificación.
+
 
 ## Diseño Experimental
 
@@ -163,11 +169,11 @@ Dadas las características del problema, se ha decidido que se utilizara  un [em
 
 El [desafío] pone a disposición de los participantes un conjunto de datos de entrenamiento compone el 10% del conjunto de datos total. Del 90% restantes, el 46% del conjunto de datos se utiliza para calcular el puntaje publico y un 56% para la puntaje privado.
 
-Para el entrenamiento de un modelo de machine learning se acostumbra la separación del conjunto de datos en un 70% de entrenamiento y 30% de prueba. Pero, siguiendo en las proporciones utilizadas en el [deafío], se decidió realizar una separación de 40% para entrenamiento y 60% para prueba del conjunto de datos.
+Para el entrenamiento de un modelo de machine learning se acostumbra la separación del conjunto de datos en un 70% de entrenamiento y 30% de prueba. Pero, siguiendo en las proporciones utilizadas en el [desafío], se decidió realizar una separación de 40% para entrenamiento y 60% para prueba del conjunto de datos.
 
 #### Tokenización
 
-El primer pazo para realiza entrenamiento de un modelo con texto es realizar un proceso de [tokenización]. Tomando inspiración del siguiente notebook referenciado en la competencia [Train your own Tokenizer], se decidió crear y entrenar un tokenizador utilizando la librería transformers de HuggingFace [Tokenizers]. Este tokenizador esta basado en el algoritmo [Byte-Pair Encoding Tokenizer](https://huggingface.co/learn/nlp-course/chapter6/5?fw=pt), que tiene propiedades que resultan útiles en nuestro problema.
+El primer pazo para realiza entrenamiento de un modelo con texto es realizar un proceso de [tokenización](#tokenización). Tomando inspiración del siguiente notebook referenciado en la competencia [Train your own Tokenizer], se decidió crear y entrenar un tokenizador utilizando la librería transformers de HuggingFace [Tokenizers]. Este tokenizador esta basado en el algoritmo [Byte-Pair Encoding Tokenizer](https://huggingface.co/learn/nlp-course/chapter6/5?fw=pt), que tiene propiedades que resultan útiles en nuestro problema.
 
 Propiedades:
 - ***Adaptabilidad al Vocabulario***:
@@ -237,7 +243,7 @@ Adicionalmente, se realizo una fase de inferencia de atributos de cada texto que
 
 #### Normalización del conjunto de datos
 
-Como parte del pre-procesamiento es importante realizar una normalización de los datos, para evitar problemas de [gradiente desvaneciente](#gradiente-desvaneciente) o la [exploción del gradiente](#exploción-del-gradiente). Por eso, por cada vector se dividió sus componente por su modulo de tal manera que cada enbedding se convierta en un vector con norma uno. Adicionalmente, se agrego la norma del vector como atributo, para que la información relativa al tamaño de cada vector no se pierda.
+Como parte del pre-procesamiento es importante realizar una normalización de los datos, para evitar problemas de [gradiente desvaneciente](#gradiente-desvaneciente) o la [exploción del gradiente](#explosi%C3%B3n-del-gradiente). Por eso, por cada vector se dividió sus componente por su modulo de tal manera que cada enbedding se convierta en un vector con norma uno. Adicionalmente, se agrego la norma del vector como atributo, para que la información relativa al tamaño de cada vector no se pierda.
 
 ***Vector de 100 elementos con sus valores normalizados.***  
       

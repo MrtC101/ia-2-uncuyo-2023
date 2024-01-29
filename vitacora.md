@@ -63,8 +63,6 @@ de que las NN no generalizan suficientemente bien.
 
 
 @TODO
-8. Colocar citas de libros y marco teorico.
-9. Enviar el borrador con 1 experimento al profesor.
 10. Reunirme para saber cambios. Hago más experimentos? 
 11. ???
 12. Realizar una presentación para resumir el informe. Que sea corto.
@@ -101,3 +99,5 @@ Días
 25
 26 lunes
 27 <---- SEGUNDA MESA
+
+Hola profe, como esta? Basandome en el proyecto de IA 1, le mando el primer borrador de informe que tengo. Tiene 1 solo experimento que es utilizar una NN para resolver el problema del desafío y un análisis de resultado. Me gustaría que lo mire y me comente si con los que he desarrollado es suficiente, si la conclusión le parece acertada,y si necesito hacer más experimentos o pruebas con el mismo modelo u otros modelos.
