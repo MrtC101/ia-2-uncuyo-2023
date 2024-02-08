@@ -182,10 +182,12 @@ Para realizar el entrenamiento del modelo de machine learning en este proyecto s
 2. Se realizó la división del conjunto de datos resultante en **conjunto de entrenamiento** y **conjunto de prueba**.
 Para esto, tomando inspiración de la división realizada en el [desafío], se decidió realizar una separación de $40\%$ para entrenamiento y $60\%$ para prueba del conjunto de datos resultante.
 
-|Total  |Test  |Train   |
-|:-----:|:-----:|:-----:|
-|$73595$|$44157$|$29438$|
-|$100\\%$|$60\\%$ |$40\\%$ |
+|          |Total   |Test    |Train   |
+|:--------:|:------:|:------:|:------:|
+|Intancias |$73595$ |$44157$ |$29438$ |
+|Procentaje|$100\\%$|$60\\%$ |$40\\%$ |
+
+**Tabla 3**: Experasa la proporción y la cantidad de instancias que tiene cada conjunto de datos en los que se ha separado el conunto de datos total para realizar la fase de entrenamiento.
 
 #### Tokenización
 
@@ -274,12 +276,12 @@ Como resultado **cada instancia** ahora está **compuesto** por los siguientes a
 - prompt_id: identificador de las instrucciones para su generación
 - generated: identificador de clase (no se utiliza para entrenamiento)
 - un atributo por cada elemento del vector de tamaño 100
-- el módulo del vector
-- el atributo token_num
-- el atributo sent_num
-- el atributo punct_sym
-- el atributo apostrof_sym
-- el atributo unk_num
+- módulo del vector
+- token_num
+- sent_num
+- punct_sym
+- apostrof_sym
+- unk_num
 
 Como todos los atributos se encuentran normalizados sus valores varían entre 0 y 1 únicamente.
 
