@@ -182,10 +182,10 @@ Para realizar el entrenamiento del modelo de machine learning en este proyecto s
 2. Se realizó la división del conjunto de datos resultante en **conjunto de entrenamiento** y **conjunto de prueba**.
 Para esto, tomando inspiración de la división realizada en el [desafío], se decidió realizar una separación de $40\%$ para entrenamiento y $60\%$ para prueba del conjunto de datos resultante.
 
-|Total  |Train  |Test   |
+|Total  |Test  |Train   |
 |:-----:|:-----:|:-----:|
 |$73595$|$44157$|$29438$|
-|$100\%$|$60\%$ |$40\%$ |
+|$100\\%$|$60\\%$ |$40\\%$ |
 
 #### Tokenización
 
@@ -257,7 +257,7 @@ Adicionalmente, se realizó una fase de inferencia de atributos de cada texto qu
 - apostrof_sym: cantidad de apostrofes.
 - unk_num: cantidad de tokens desconocidos en el texto.(palabras que no forman parte del vocabulario)
 
-fase#### Normalización del conjunto de datos
+#### Normalización del conjunto de datos
 
 Como parte del preprocesamiento es importante realizar una normalización de los datos, para evitar problemas de [gradiente desvaneciente](#gradiente-desvaneciente) o la [exploción del gradiente](#explosi%C3%B3n-del-gradiente). 
 
