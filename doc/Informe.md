@@ -334,23 +334,27 @@ La **Figura 1** y **Figura 2** muestran de manera gráfica el rendimiento del mo
 
 Analizando la **Figura 1** y **Figura 2**, se puede interpretar que el modelo fue capaz de aprender gran parte de los datos del conjunto de entrenamiento y obtener un valor de ROC AUC y ROC AUC PR alto.
 
+![AUC y Loss plot](./images/train_loss_auc_plot.png)
+
+**Figura 3**: Muestra los valores que tomaron la función de pérdida y la métrica AUC sobre los folds de entrenamiento y el fold de validación durante la fase de entrenamiento. Las líneas punteadas indican en qué época se cambió el conjunto de folds para entrenar, ya que estamos utilizando 10-folding.
+
 #### Resultados de inferencia
 
-Finalmente, el modelo realizó una predicción de clases sobre el conjunto de *datos de prueba* dando como resultado las siguientes figuras **Figura 3** y **Figura 4** 
+Finalmente, el modelo realizó una predicción de clases sobre el conjunto de *datos de prueba* dando como resultado las siguientes figuras **Figura 4** y **Figura 5** 
 
 ![Curvas ROC de prueba](./images/ROC%20de%20prueba.png)
 
-**Figura 3**: Muestra un gráfico de las Curvas ROC, ROC-PR y puntajes AUC al evaluar las predicciones del modelo sobre el ***conjunto de prueba***.
+**Figura 4**: Muestra un gráfico de las Curvas ROC, ROC-PR y puntajes AUC al evaluar las predicciones del modelo sobre el ***conjunto de prueba***.
 
 ![Matriz de confusión de prueba](./images/confusion%20de%20prueba.png)
 
-**Figura 4**: Muestra una matriz de confusión resultante de las inferencias realizadas por el modelo sobre el ***conjunto de prueba***.
+**Figura 5**: Muestra una matriz de confusión resultante de las inferencias realizadas por el modelo sobre el ***conjunto de prueba***.
 
-Analizando la **Figura 1** y **Figura 2**, podemos interpretar que el modelo es capaz de predecir la clase de gran parte de las instancias en el conjunto de prueba, lo cual, a priori, nos hace suponer que el modelo tiene un buen desempeño. Pero, a pesar de esto, al realizar inferencias sobre los datos de prueba del [desafío] podemos notar que el rendimiento del modelo es notablemente más bajo.
+Analizando la **Figura 4** y **Figura 5**, podemos interpretar que el modelo es capaz de predecir la clase de gran parte de las instancias en el conjunto de prueba, lo cual, a priori, nos hace suponer que el modelo tiene un buen desempeño. Pero, a pesar de esto, al realizar inferencias sobre los datos de prueba del [desafío] podemos notar que el rendimiento del modelo es notablemente más bajo.
 
 ![Puntaje del rendimiento del modelo en kaggle](./images/puntaje.png)
 
-**Figura 5**: Muestra los puntajes obtenidos por el modelo al realizar inferencia sobre el conjunto de datos de prueba del [desafío]. El puntaje privado es el rendimiento del modelo sobre el 54% del conjunto de datos de prueba. Y el puntaje público es el rendimiento del modelo sobre el otro 46% del conjunto de datos de prueba.
+**Figura 6**: Muestra los puntajes obtenidos por el modelo al realizar inferencia sobre el conjunto de datos de prueba del [desafío]. El puntaje privado es el rendimiento del modelo sobre el 54% del conjunto de datos de prueba. Y el puntaje público es el rendimiento del modelo sobre el otro 46% del conjunto de datos de prueba.
 
 ## Conclusión
 
