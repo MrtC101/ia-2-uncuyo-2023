@@ -31,6 +31,7 @@ Para el experimento utilizare lo que se conoce como NN(Neural Network) o MLP(Mul
 Las funciones de activación, según [Dive into deep learning], deciden cuando una neurona debe activarse calculando la suma de pesos y añadiendo un sesgo. Existen diferentes funciones de activación y la mayoría quitan la linealidad al modelo.
 
 Para este proyecto se ha elegido la función de activación **ReLU**. Esta función a pesar de su simplicidad tiene un buen rendimiento y se define como
+
 $$ \text{ReLU}(x) = \text{max}(x,0)$$
 
 Básicamente toma todos los valores negativos y los convierte a 0.
