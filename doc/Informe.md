@@ -31,7 +31,6 @@ Para el experimento utilizare lo que se conoce como NN(Neural Network) o MLP(Mul
 Las funciones de activación, según [Dive into deep learning], deciden cuando una neurona debe activarse calculando la suma de pesos y añadiendo un sesgo. Existen diferentes funciones de activación y la mayoría quitan la linealidad al modelo.
 
 Para este proyecto se ha elegido la función de activación **ReLU**. Esta función a pesar de su simplicidad tiene un buen rendimiento y se define como
-
 $$ \text{ReLU}(x) = \text{max}(x,0)$$
 
 Básicamente toma todos los valores negativos y los convierte a 0.
@@ -332,6 +331,8 @@ La **Figura 1** y **Figura 2** muestran de manera gráfica el rendimiento del mo
 ![Matriz de confusión de entrenamiento](./images/confusion%20de%20entrenamiento.png)
 
 **Figura 2**: Muestra una matriz de confusión resultante de las inferencias realizadas por el modelo sobre el ***conjunto de entrenamiento***.
+- ***True*** corresponde con la clase de texto generado por LLM.
+- ***False*** corresponde con la clase generada por estudiantes.
 
 Analizando la **Figura 1** y **Figura 2**, se puede interpretar que el modelo fue capaz de aprender gran parte de los datos del conjunto de entrenamiento y obtener un valor de ROC AUC y ROC AUC PR alto.
 
@@ -350,12 +351,24 @@ Finalmente, el modelo realizó una predicción de clases sobre el conjunto de *d
 ![Matriz de confusión de prueba](./images/confusion%20de%20prueba.png)
 
 **Figura 5**: Muestra una matriz de confusión resultante de las inferencias realizadas por el modelo sobre el ***conjunto de prueba***.
+- ***True*** corresponde con la clase de texto generado por LLM.
+- ***False*** corresponde con la clase generada por estudiantes.
 
 Analizando la **Figura 4** y **Figura 5**, podemos interpretar que el modelo es capaz de predecir la clase de gran parte de las instancias en el conjunto de prueba, lo cual, a priori, nos hace suponer que el modelo tiene un buen desempeño. Pero, a pesar de esto, al realizar inferencias sobre los datos de prueba del [desafío] podemos notar que el rendimiento del modelo es notablemente más bajo.
 
 ![Puntaje del rendimiento del modelo en kaggle](./images/puntaje.png)
 
 **Figura 6**: Muestra los puntajes obtenidos por el modelo al realizar inferencia sobre el conjunto de datos de prueba del [desafío]. El puntaje privado es el rendimiento del modelo sobre el 54% del conjunto de datos de prueba. Y el puntaje público es el rendimiento del modelo sobre el otro 46% del conjunto de datos de prueba.
+
+A partir de la **Figura 5** podemos calcular las métricas Accuracy, Recall y  Precision que se centran en la capacidad del modelo para predecir la clase mayoritaria de textos generados por LLM:
+
+$$\text{Accuracy}=\frac{TP+TN}{TP+TN+FP+FN}=\frac{15744+26428}{15744+1401+548+26428}=0.96$$
+
+$$\text{Recall}=\frac{TP}{TP+FN}=\frac{15744}{15744+1401}=0.92$$
+
+$$\text{Precision}=\frac{TP}{TP+FP}={\frac{15744}{15744+548}}=0.97$$
+
+A partir de estos valores podemos asumir que el modelo realiza un $96\%$ de predicciones correctas, identifica $92\%$ de los textos producidos por LLM correctamente y la Precisión del modelo para detectar textos generados por LLM es de $92\%$, lo que indica que es bastante bueno en general, con una alta capacidad para identificar textos generados por LLM y una alta precisión en sus predicciones positivas.
 
 ## Conclusión
 
