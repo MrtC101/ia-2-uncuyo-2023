@@ -31,6 +31,7 @@ Para el experimento utilizare lo que se conoce como NN(Neural Network) o MLP(Mul
 Las funciones de activación, según [Dive into deep learning], deciden cuando una neurona debe activarse calculando la suma de pesos y añadiendo un sesgo. Existen diferentes funciones de activación y la mayoría quitan la linealidad al modelo.
 
 Para este proyecto se ha elegido la función de activación **ReLU**. Esta función a pesar de su simplicidad tiene un buen rendimiento y se define como
+
 $$ \text{ReLU}(x) = \text{max}(x,0)$$
 
 Básicamente toma todos los valores negativos y los convierte a 0.
@@ -368,7 +369,7 @@ $$\text{Recall}=\frac{TP}{TP+FN}=\frac{15744}{15744+1401}=0.92$$
 
 $$\text{Precision}=\frac{TP}{TP+FP}={\frac{15744}{15744+548}}=0.97$$
 
-A partir de estos valores podemos asumir que el modelo realiza un $96\%$ de predicciones correctas, identifica $92\%$ de los textos producidos por LLM correctamente y la Precisión del modelo para detectar textos generados por LLM es de $92\%$, lo que indica que es bastante bueno en general, con una alta capacidad para identificar textos generados por LLM y una alta precisión en sus predicciones positivas.
+A partir de estos valores podemos asumir que el modelo realiza un $96\\%$ de predicciones correctas, identifica $92\\%$ de los textos producidos por LLM correctamente y la Precisión del modelo para detectar textos generados por LLM es de $92\\%$, lo que indica que es bastante bueno en general, con una alta capacidad para identificar textos generados por LLM y una alta precisión en sus predicciones positivas.
 
 ## Conclusión
 
